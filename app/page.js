@@ -75,7 +75,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-5xl font-black text-center mb-8 text-[#0A2540]">Pre-Order Collection</h2>
           <p className="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
-            Be the first to own Water Snob gear. Pre-order now and we'll notify you when it's ready to ship.
+            Be the first to own Water Snob gear. Pre-order now and we&apos;ll notify you when it&apos;s ready to ship.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -114,10 +114,10 @@ export default function Home() {
             <div>
               <h2 className="text-5xl font-black mb-8 text-[#0A2540]">Not All Water. Not All Merch.</h2>
               <p className="text-lg mb-6 text-gray-700">
-                Born from the culture of premium alkaline water, Water Snob represents the intersection of health consciousness and bold streetwear. We don't just hydrate—we elevate.
+                Born from the culture of premium alkaline water, Water Snob represents the intersection of health consciousness and bold streetwear. We don&apos;t just hydrate—we elevate.
               </p>
               <p className="text-lg mb-8 text-gray-700">
-                Every piece tells the story of those who refuse to settle for basic. From WaterTree's alkaline excellence to your everyday drip, we're here for those who know better deserves better.
+                Every piece tells the story of those who refuse to settle for basic. From WaterTree&apos;s alkaline excellence to your everyday drip, we&apos;re here for those who know better deserves better.
               </p>
               <button className="bg-[#0A2540] hover:bg-[#082038] text-white font-bold py-3 px-6 rounded-full transition-colors">
                 Learn More
@@ -179,7 +179,7 @@ export default function Home() {
               { quote: "Perfect blend of wellness culture and street style.", author: "Sam R." }
             ].map((testimonial, index) => (
               <div key={index} className="bg-white p-8 rounded-lg shadow-sm">
-                <p className="text-lg mb-4 text-gray-700 italic">"{testimonial.quote}"</p>
+                <p className="text-lg mb-4 text-gray-700 italic">&ldquo;{testimonial.quote}&rdquo;</p>
                 <span className="text-[#00C2D1] font-semibold">— {testimonial.author}</span>
               </div>
             ))}
@@ -212,7 +212,7 @@ export default function Home() {
             <div className="lg:col-span-2">
               <h3 className="text-3xl font-black mb-4">Water Snob</h3>
               <p className="text-lg text-white/80 mb-6">
-                "Don't settle for basic water. Don't settle for basic merch."
+                &ldquo;Don&apos;t settle for basic water. Don&apos;t settle for basic merch.&rdquo;
               </p>
             </div>
             <div>
@@ -252,7 +252,7 @@ export default function Home() {
               </div>
               <h3 className="text-2xl font-black text-[#0A2540] mb-2">{selectedProduct?.name}</h3>
               <p className="text-[#00C2D1] font-bold text-xl mb-2">{selectedProduct?.price}</p>
-              <p className="text-gray-600">Pre-order now and we'll email you when it's ready!</p>
+              <p className="text-gray-600">Pre-order now and we&apos;ll email you when it&apos;s ready!</p>
             </div>
 
             <form onSubmit={handlePreOrderSubmit} className="space-y-4">
@@ -298,7 +298,7 @@ export default function Home() {
             </form>
             
             <p className="text-xs text-gray-500 text-center mt-4">
-              No payment required. We'll contact you when your item is ready to order.
+              No payment required. We&apos;ll contact you when your item is ready to order.
             </p>
           </div>
         </div>
