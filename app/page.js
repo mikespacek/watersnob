@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -79,16 +80,20 @@ export default function Home() {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Water Snob Essential Tee", price: "$45", image: "Premium Tee" },
-              { name: "Snob Society Cap", price: "$35", image: "Embroidered Hat" },
-              { name: "Alkaline Hoodie", price: "$85", image: "Premium Hoodie" },
-              { name: "Snob Bottle", price: "$25", image: "Water Bottle" }
+              { name: "Water Snob Essential Tee", price: "$45", image: "/images/IMG_5423-preview.webp" },
+              { name: "Water Snob Cap", price: "$35", image: "/images/IMG_2197.jpg" },
+              { name: "Water Snob Hoodie", price: "$45", image: "/images/IMG_6772.webp" },
+              { name: "Water Snob Hoodie", price: "$45", image: "/images/IMG_6775.webp" }
             ].map((product, index) => (
               <div key={index} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-square mb-4">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#00C2D1] to-[#0A2540] flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
-                    {product.image}
-                  </div>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 25vw, 20vw"
+                  />
                   <div className="absolute top-4 left-4 bg-[#00C2D1] text-[#0A2540] px-3 py-1 rounded-full text-sm font-bold">
                     Pre-Order
                   </div>
@@ -119,14 +124,15 @@ export default function Home() {
               <p className="text-lg mb-8 text-gray-700">
                 Every piece tells the story of those who refuse to settle for basic. From WaterTree&apos;s alkaline excellence to your everyday drip, we&apos;re here for those who know better deserves better.
               </p>
-              <button className="bg-[#0A2540] hover:bg-[#082038] text-white font-bold py-3 px-6 rounded-full transition-colors">
-                Learn More
-              </button>
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#00C2D1] to-[#0A2540] flex items-center justify-center text-white font-bold text-2xl">
-                Lifestyle Image
-              </div>
+              <Image
+                src="/images/IMG_5432.webp"
+                alt="Water Snob lifestyle"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
@@ -138,15 +144,19 @@ export default function Home() {
           <h2 className="text-5xl font-black text-center mb-16 text-[#0A2540]">Best Sellers</h2>
           <div className="grid lg:grid-cols-3 gap-12">
             {[
-              { name: "Oversized Essential", desc: "Premium cotton blend for all-day comfort", price: "$55" },
-              { name: "Signature Cap", desc: "Hand-embroidered with premium materials", price: "$40" },
-              { name: "Clean Hoodie", desc: "Minimalist design meets maximum comfort", price: "$90" }
+              { name: "Water Snob Hoodie", desc: "Premium cotton blend for all-day comfort", price: "$45", image: "/images/IMG_6777.webp" },
+              { name: "Water Snob Cap", desc: "Hand-embroidered with premium materials", price: "$35", image: "/images/IMG_2197.jpg" },
+              { name: "Water Snob Hoodie", desc: "Minimalist design meets maximum comfort", price: "$45", image: "/images/IMG_6780.webp" }
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="relative h-80 mb-6 rounded-lg overflow-hidden bg-gray-100">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0A2540] to-[#00C2D1] flex items-center justify-center text-white font-bold text-lg">
-                    {item.name} Lifestyle
-                  </div>
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 text-[#0A2540]">{item.name}</h3>
                 <p className="text-gray-600 mb-3">{item.desc}</p>
@@ -247,8 +257,14 @@ export default function Home() {
             </button>
             
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#00C2D1] to-[#0A2540] rounded-lg mx-auto mb-4 flex items-center justify-center text-white font-bold">
-                {selectedProduct?.image.split(' ')[0]}
+              <div className="w-24 h-24 relative rounded-lg mx-auto mb-4 overflow-hidden">
+                <Image
+                  src={selectedProduct?.image || '/images/IMG_5423-preview.webp'}
+                  alt={selectedProduct?.name || 'Product'}
+                  fill
+                  className="object-cover"
+                  sizes="96px"
+                />
               </div>
               <h3 className="text-2xl font-black text-[#0A2540] mb-2">{selectedProduct?.name}</h3>
               <p className="text-[#00C2D1] font-bold text-xl mb-2">{selectedProduct?.price}</p>
